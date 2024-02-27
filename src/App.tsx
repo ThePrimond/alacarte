@@ -1,17 +1,13 @@
 import { ChakraProvider } from "@chakra-ui/react";
-import "./App.css";
-import { Login, SignUp } from "./components";
+import { RouterProvider } from "react-router-dom";
+import { baseRouter } from "./router";
 
-function App() {
+export const App = () => {
   return (
     <ChakraProvider>
-      {/* <Login /> */}
-      <>
-        <Login />
-        <SignUp />
-      </>
+      <RouterProvider router={baseRouter} />
     </ChakraProvider>
   );
-}
+};
 
 export default App;
