@@ -3,6 +3,7 @@ import { Form, Input } from "../../..";
 import { Button, Flex, Heading, useToast } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { signUp } from "../../../../service/user/user";
+import { FormikValues } from "formik";
 
 export type SignUpProps = object;
 
@@ -11,7 +12,7 @@ const initialSignUpValues = { email: "", password: "" };
 export const SignUp: FC<SignUpProps> = () => {
   const toast = useToast();
 
-  const onSignUp = async ({ email, password }: typeof initialSignUpValues) => {
+  const onSignUp = async ({ email, password }: FormikValues) => {
     const err = await signUp(email, password);
 
     if (err) {
